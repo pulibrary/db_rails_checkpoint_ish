@@ -16,17 +16,6 @@ commands:
           key: fruit_time-{{ checksum "Gemfile.lock.bak" }}
           paths:
             - ./vendor/bundle
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          key: fruit_time-yarn-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install NPM Dependencies via Yarn
-          command: yarn install --frozen-lockfile
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: fruit_time-yarn-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
 
 jobs:
   build:
