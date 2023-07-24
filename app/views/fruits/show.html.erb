@@ -1,0 +1,24 @@
+<%= render 'boot'%>
+<div class="text-center py-2 bg-warning text-white text-capitalize">
+    <h1 class="display-4"><%= @fruit.name %></h1>
+</div>
+
+<div class="my-5 px-5">
+    <h2>About:</h2>
+    <p class="lead"><%=@fruit.about%></p>
+</div>
+
+<div class="my-4 px-5">
+    <h2>
+        Calories per unit: <span class="badge rounded-pill text-bg-danger"><%=@fruit.calories%></span>
+    </h2>
+</div>
+
+<div class="px-5 my-4 fs-4">
+    <%= link_to "Edit", edit_fruit_path(@fruit) %>
+    <%= link_to 'Delete', delete_fruit_path(@fruit)%></span>
+</div>
+
+<div class="px-5 my-4 fs-4">
+    <%= link_to 'Home', fruits_path%>
+</div>
