@@ -58,7 +58,7 @@ jobs:
           RAILS_ENV: test
       - image: postgres:10.6-alpine
         environment:
-          POSTGRES_USER: rails_template_user
+          POSTGRES_USER: fruit_time_user
           POSTGRES_DB: test_db
           POSTGRES_HOST_AUTH_METHOD: trust
     steps:
