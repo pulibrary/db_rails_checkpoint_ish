@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FruitsController < ApplicationController
   def index
     @fruits = Fruit.all
@@ -42,7 +44,8 @@ class FruitsController < ApplicationController
   end
 
   private
-    def fruit_params
-      params.require(:fruit).permit(:name, :calories, :about)
-    end
+
+  def fruit_params
+    params.require(:fruit).permit(:name, :calories, :about)
+  end
 end
