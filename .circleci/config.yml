@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  browser-tools: circleci/browser-tools@1.4.2
+  browser-tools: circleci/browser-tools@1.4.3
   node: circleci/node@5.0.2
 
 commands:
@@ -16,30 +16,16 @@ commands:
           key: fruit_time-{{ checksum "Gemfile.lock.bak" }}
           paths:
             - ./vendor/bundle
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          key: fruit_time-yarn-{{ checksum "yarn.lock" }}
-      - run:
-          name: Install NPM Dependencies via Yarn
-          command: yarn install --frozen-lockfile
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: fruit_time-yarn-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
 
 jobs:
   build:
     working_directory: ~/fruit_time
     docker:
-      - image: cimg/ruby:3.1.0-browsers
+      - image: cimg/ruby:3.0.0-browsers
         environment:
           RAILS_ENV: test
     steps:
       - browser-tools/install-browser-tools
-      - run:
-          name: remove errant LICENSE file
-          command: rm LICENSE.chromedriver
       - checkout
       - node/install:
           install-yarn: true
@@ -53,7 +39,7 @@ jobs:
   rubocop:
     working_directory: ~/fruit_time
     docker:
-      - image: cimg/ruby:3.1.0-browsers
+      - image: cimg/ruby:3.0.0-browsers
         environment:
           RAILS_ENV: test
     steps:
@@ -67,7 +53,7 @@ jobs:
   test:
     working_directory: ~/fruit_time
     docker:
-      - image: cimg/ruby:3.1.0-browsers
+      - image: cimg/ruby:3.0.0-browsers
         environment:
           RAILS_ENV: test
       - image: postgres:10.6-alpine
