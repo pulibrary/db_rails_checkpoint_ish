@@ -1,0 +1,24 @@
+<%= render 'boot'%>
+<div class="text-center py-3 bg-info text-white">
+    <h1 class="display-1">FruitTime</h1>
+    <p class="lead">Here are the fruits we have!</p>
+</div>
+
+<ol class="list-group list-group-numbered mb-3">
+    <% @fruits.each do |fruit|%>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+            <div class="fw-bold text-capitalize">
+                <a href="/fruits/<%= fruit.id %>" class="text-reset link-offset-2 link-offset-0-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"><%= fruit.name%></a>
+            </div>
+            <%= fruit.about %>
+            </div>
+            <span class="badge bg-success rounded-pill"><%=fruit.calories%></span>
+        </li>
+    <%end%>
+</ol>
+
+<span class="m-5">
+    <%= link_to "Create new fruit", new_fruit_path %>
+</span>
+

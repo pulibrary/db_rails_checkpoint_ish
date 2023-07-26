@@ -1,0 +1,22 @@
+<%= form_with model: fruit do |f| %>
+    <div class="mx-5 px-5">
+        <div class="mb-3" cols>
+            <%= f.label :name %><br>
+            <%= f.text_field :name %>
+        </div>
+
+        <div class="mb-3">
+            <%= f.label :calories %><br>
+            <%= f.number_field :calories%>
+        </div>
+
+        <div class="mb-3" rows=10>
+            <%= f.label :about %><br>
+            <%= f.text_area :about %>
+        </div>
+
+        <div class="mb-3">
+            <%= f.submit %>
+        </div>
+    </div>
+<% end %>
