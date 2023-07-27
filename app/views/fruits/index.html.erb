@@ -1,5 +1,5 @@
 <%= render 'boot'%>
-<div class="text-center py-3 bg-info text-white">
+<div class="text-center py-3 text-white" style="background-color:#4773aa">
     <h1 class="display-1">FruitTime</h1>
     <p class="lead">Here are the fruits we have!</p>
 </div>
@@ -13,12 +13,14 @@
             </div>
             <%= fruit.about %>
             </div>
-            <span class="badge bg-success rounded-pill"><%=fruit.calories%></span>
+            <span class="badge bg-success rounded-pill"><%=fruit.calories%> cal</span>
         </li>
     <%end%>
 </ol>
 
-<span class="m-5">
-    <%= link_to "Create new fruit", new_fruit_path %>
+<span class="m-5 d-flex justify-content-center">
+    <button type="button" class="btn btn-danger btn-lg">
+        <%= link_to "Create new fruit", new_fruit_path, class:"link-light link-underline-opacity-0"%>
+    </button>
 </span>
 
