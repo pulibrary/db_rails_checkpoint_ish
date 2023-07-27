@@ -1,6 +1,8 @@
 <%= render 'boot'%>
-<div class="text-center py-2 bg-warning text-white text-capitalize">
+<div class="text-center py-2 px-2 bg-warning text-capitalize d-flex justify-content-between align-items-center fs-5">
+    <button type="button" class="btn btn-primary"><%= link_to 'Home', fruits_path, class:"link-light link-underline-opacity-0"%></button>
     <h1 class="display-4"><%= @fruit.name %></h1>
+    <button type="button" class="btn btn-primary"><a class="link-light link-underline-opacity-0" target="_blank" href="https://en.wikipedia.org/wiki/<%=@fruit.name%>">Info</a></button>
 </div>
 
 <div class="my-5 px-5">
@@ -17,8 +19,4 @@
 <div class="px-5 my-4 fs-4">
     <%= link_to "Edit", edit_fruit_path(@fruit) %>
     <%= link_to 'Delete', delete_fruit_path(@fruit)%></span>
-</div>
-
-<div class="px-5 my-4 fs-4">
-    <%= link_to 'Home', fruits_path%>
 </div>

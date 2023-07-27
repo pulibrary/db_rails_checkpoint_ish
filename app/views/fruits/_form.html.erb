@@ -1,18 +1,21 @@
 <%= form_with model: fruit do |f| %>
     <div class="mx-5 px-5">
+        <div class="alert alert-info" role="alert">
+            All fields are required!
+        </div>
         <div class="mb-3" cols>
             <%= f.label :name %><br>
-            <%= f.text_field :name %>
+            <%= f.text_field :name, required: true%>
         </div>
 
         <div class="mb-3">
             <%= f.label :calories %><br>
-            <%= f.number_field :calories%>
+            <%= f.number_field :calories, required: true%>
         </div>
 
-        <div class="mb-3" rows=10>
+        <div class="mb-3">
             <%= f.label :about %><br>
-            <%= f.text_area :about %>
+            <%= f.text_area :about, required: true%>
         </div>
 
         <div class="mb-3">
